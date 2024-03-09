@@ -9,9 +9,9 @@ public class Card {
         this.color = color;
         this.value = value;
         setName(value);
-        
+
     }
-    
+
     private void setName(int value) {
         switch (value) {
             case 11:
@@ -29,14 +29,25 @@ public class Card {
             default:
                 name = "" + value;
                 break;
-    
-    
+
         }
-        
+
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public CardColor egtColor() {
+        return color;
     }
 
     public String toString() {
         return "" + name + " of " + color;
+    }
+
+    public boolean equals(Card other){
+        return this.color.equals(other.color) && this.value == other.value;
     }
 
 }

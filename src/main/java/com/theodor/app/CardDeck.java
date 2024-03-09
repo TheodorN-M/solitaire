@@ -23,8 +23,10 @@ public class CardDeck extends ArrayList<Card> {
         }
     }
     
-    private void shuffle(){
-
+    public void shuffle(){
+        for (Card card : this) {
+            set(rnd.nextInt(CARD_AMOUNT), card);
+        }
     }
 
     public void printDeck(){
