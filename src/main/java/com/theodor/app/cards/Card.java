@@ -1,15 +1,28 @@
-package com.theodor.app;
+package com.theodor.app.cards;
 
 public class Card {
-    private final CardColor color;
+    private final CardType type;
     private final int value;
     private String name;
+    private CardColor color;
 
-    public Card(CardColor color, int value) {
-        this.color = color;
+    public Card(CardType type, int value) {
+        this.type = type;
         this.value = value;
+        setColor(type);
         setName(value);
 
+    }
+
+    private void setColor(CardType type) {
+        switch (type){
+            case CLUBS:
+            case SPADES:
+                this.color = CardColor.BLACK;
+                break;
+            default:
+                this.color = CardColor.RED;
+        }
     }
 
     private void setName(int value) {
@@ -38,16 +51,20 @@ public class Card {
         return value;
     }
 
-    public CardColor egtColor() {
+    public CardType getType() {
+        return type;
+    }
+
+    public CardColor getColor(){
         return color;
     }
 
     public String toString() {
-        return "" + name + " of " + color;
+        return "" + name + " of " + type;
     }
 
     public boolean equals(Card other){
-        return this.color.equals(other.color) && this.value == other.value;
+        return this.type.equals(other.type) && this.value == other.value;
     }
 
 }

@@ -1,5 +1,7 @@
 package com.theodor.app;
 
+import com.theodor.app.cards.CardDeck;
+
 /**
  * Hello world!
  *

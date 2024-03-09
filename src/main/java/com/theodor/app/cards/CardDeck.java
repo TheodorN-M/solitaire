@@ -1,4 +1,4 @@
-package com.theodor.app;
+package com.theodor.app.cards;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public class CardDeck extends ArrayList<Card> {
     }
 
     private void generateDeck() {
-        for (CardColor color : CardColor.values()) {
+        for (CardType color : CardType.values()) {
             for (int i = 1; i <= 13; i++) {
                 this.add(new Card(color, i));
                 
