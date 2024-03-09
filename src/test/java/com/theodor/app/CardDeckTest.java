@@ -7,11 +7,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class CardDeckTest {
+
     @Test
     public void deckShuffleTest() {
         CardDeck unshuffledDeck = new CardDeck();
         CardDeck shuffledDeck = new CardDeck();
-        shuffledDeck.shuffle();
+        shuffledDeck.shuffle(1);
         assertNotEquals(unshuffledDeck, shuffledDeck);
     }
 
@@ -19,10 +20,12 @@ public class CardDeckTest {
     public void randomShuffleTest(){
         CardDeck shuffledDeck1 = new CardDeck();
         CardDeck shuffledDeck2 = new CardDeck();
-        shuffledDeck1.shuffle();
-        shuffledDeck2.shuffle();
+        shuffledDeck1.shuffle(1);
+        shuffledDeck2.shuffle(1);
 
         assertNotEquals(shuffledDeck1, shuffledDeck2);
     }
+
+
 }
 

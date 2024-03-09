@@ -8,7 +8,7 @@ public class Main {
     public static void main( String[] args ){
         CardDeck deck = new CardDeck();
         deck.printDeck();
-        deck.shuffle();
+        deck.shuffle(1);
         deck.printDeck();
     }
 }

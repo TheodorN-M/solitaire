@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class CardDeck extends ArrayList<Card> {
     private Random rnd;
-    private final int CARD_AMOUNT = 52;
+    private final static int CARD_AMOUNT = 52;
     private int cardsInDeck = this.size();
 
     public CardDeck(){
-        super(52);
+        super(CARD_AMOUNT);
         this.rnd = new Random();
         generateDeck();
     }
@@ -22,10 +22,16 @@ public class CardDeck extends ArrayList<Card> {
             }
         }
     }
-    
-    public void shuffle(){
-        for (Card card : this) {
-            set(rnd.nextInt(CARD_AMOUNT), card);
+    /**
+     * Shuffles the deck randomly
+     * @param nTimes how many shuffles to give
+     */
+    public void shuffle(int nTimes){
+        for (int i = 0; i < nTimes; i++) {
+            for (Card card : this) {
+                set(rnd.nextInt(CARD_AMOUNT), card);
+            }
+            
         }
     }
 
