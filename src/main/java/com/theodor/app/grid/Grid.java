@@ -1,4 +1,4 @@
-package inf112.skeleton.app.grid;
+package com.theodor.app.grid;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -97,7 +97,7 @@ public class Grid<E> implements IGrid<E> {
 
     @Override
     public boolean positionIsOnGrid(CellPosition pos) {
-        return pos.row() >= 0 && pos.col() >= 0 && pos.row() < rows && pos.col() < cols;     
+        return pos.getRow() >= 0 && pos.getCol() >= 0 && pos.getRow() < rows && pos.getCol() < cols;     
     }
     
     /**
@@ -107,6 +107,6 @@ public class Grid<E> implements IGrid<E> {
      * @return int
      */
     private int locationToIndex(CellPosition pos){
-        return pos.row() + pos.col() * rows;
+        return pos.getRow() + pos.getCol() * rows;
     }
 }

@@ -1,4 +1,4 @@
-package inf112.skeleton.app.grid;
+package com.theodor.app.grid;
 
 public interface IGrid<E> extends GridDimension, Iterable<GridCell<E>> {
   
