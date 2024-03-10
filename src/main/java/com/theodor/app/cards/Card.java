@@ -7,12 +7,21 @@ public class Card implements ICard {
     private CardColor color;
     private boolean faceUp;
 
-    public Card(CardSuit suit, int value) {
+    public Card(CardSuit suit, int value, boolean faceUp) {
         this.suit = suit;
         this.value = value;
+        this.faceUp = faceUp;
         setColor(suit);
         setName(value);
 
+    }
+    /**
+     * Second constructor that puts card face-down
+     * @param suit
+     * @param value
+     */
+    public Card(CardSuit suit, int value){
+        this(suit, value, false);
     }
 
     private void setColor(CardSuit type) {
@@ -71,6 +80,10 @@ public class Card implements ICard {
     @Override
     public void turnCard() {
         faceUp = !faceUp;
+    }
+
+    public boolean faceUp(){
+        return faceUp;
     }
 
     @Override

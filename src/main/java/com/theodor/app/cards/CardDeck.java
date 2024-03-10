@@ -6,7 +6,6 @@ import java.util.ArrayList;
 public class CardDeck extends ArrayList<Card> {
     private Random rnd;
     private final static int CARD_AMOUNT = 52;
-    private int cardsInDeck = this.size();
 
     public CardDeck(){
         super(CARD_AMOUNT);
@@ -22,16 +21,19 @@ public class CardDeck extends ArrayList<Card> {
             }
         }
     }
-    /**
-     * Shuffles the deck randomly
+   /**
+     * Shuffles the deck randomly using the Fisher-Yates shuffle algorithm
      * @param nTimes how many shuffles to give
      */
     public void shuffle(int nTimes){
         for (int i = 0; i < nTimes; i++) {
-            for (Card card : this) {
-                set(rnd.nextInt(CARD_AMOUNT), card);
+            for (int j = this.size() - 1; j > 0; j--) {
+                int index = rnd.nextInt(j + 1);
+                // Simple swap
+                Card a = this.get(index);
+                this.set(index, this.get(j));
+                this.set(j, a);
             }
-            
         }
     }
 
@@ -42,10 +44,20 @@ public class CardDeck extends ArrayList<Card> {
     }
 
     public Card draw(){
-        return this.remove(cardsInDeck-1);
+        if (size() <= 0){
+            System.out.println("No cards left in deck");
+            return null;
+        }
+
+        return this.remove(size()-1);
     }
 
     public Card drawRandom(){
-        return this.remove(rnd.nextInt(cardsInDeck));
+        if (size() > 0)
+            return this.remove(rnd.nextInt(size()));
+        else {
+            System.out.println("No cards left in deck");
+            return null;
+        }
     }
 }
