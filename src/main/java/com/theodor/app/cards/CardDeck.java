@@ -15,9 +15,9 @@ public class CardDeck extends ArrayList<Card> {
     }
 
     private void generateDeck() {
-        for (CardSuit color : CardSuit.values()) {
+        for (CardSuit suit : CardSuit.values()) {
             for (int i = 1; i <= 13; i++) {
-                this.add(new Card(color, i));
+                this.add(new Card(suit, i, false));
                 
             }
         }
@@ -39,5 +39,13 @@ public class CardDeck extends ArrayList<Card> {
         for (Card card : this) {
             System.out.println(card.toString());
         }
+    }
+
+    public Card draw(){
+        return this.remove(cardsInDeck-1);
+    }
+
+    public Card drawRandom(){
+        return this.remove(rnd.nextInt(cardsInDeck));
     }
 }
