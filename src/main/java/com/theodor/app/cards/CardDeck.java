@@ -15,7 +15,7 @@ public class CardDeck extends ArrayList<Card> {
     }
 
     private void generateDeck() {
-        for (CardType color : CardType.values()) {
+        for (CardSuit color : CardSuit.values()) {
             for (int i = 1; i <= 13; i++) {
                 this.add(new Card(color, i));
                 

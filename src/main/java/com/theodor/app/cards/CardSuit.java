@@ -1,6 +1,6 @@
 package com.theodor.app.cards;
 
-public enum CardType {
+public enum CardSuit {
     HEARTS,
     DIAMONDS,
     SPADES,

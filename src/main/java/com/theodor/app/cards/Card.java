@@ -1,21 +1,22 @@
 package com.theodor.app.cards;
 
-public class Card {
-    private final CardType type;
+public class Card implements ICard {
+    private final CardSuit suit;
     private final int value;
     private String name;
     private CardColor color;
+    private boolean faceUp;
 
-    public Card(CardType type, int value) {
-        this.type = type;
+    public Card(CardSuit suit, int value) {
+        this.suit = suit;
         this.value = value;
-        setColor(type);
+        setColor(suit);
         setName(value);
 
     }
 
-    private void setColor(CardType type) {
-        switch (type){
+    private void setColor(CardSuit type) {
+        switch (type) {
             case CLUBS:
             case SPADES:
                 this.color = CardColor.BLACK;
@@ -47,24 +48,42 @@ public class Card {
 
     }
 
+    @Override
     public int getValue() {
         return value;
     }
 
-    public CardType getType() {
-        return type;
+    @Override
+    public CardSuit getSuit() {
+        return suit;
     }
 
-    public CardColor getColor(){
+    @Override
+    public CardColor getColor() {
         return color;
     }
 
+    @Override
     public String toString() {
-        return "" + name + " of " + type;
+        return "" + name + " of " + suit;
     }
 
-    public boolean equals(Card other){
-        return this.type.equals(other.type) && this.value == other.value;
+    @Override
+    public void turnCard() {
+        faceUp = !faceUp;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other)
+            return true;
+        if (other == null || getClass() != other.getClass())
+            return false;
+
+        Card card = (Card) other;
+
+        return value == card.value &&
+                suit == card.suit;
     }
 
 }
