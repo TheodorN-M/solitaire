@@ -19,6 +19,6 @@ public class SolitaireGame {
     }
 
     public void initDeal(){
-
+        
     }
 }
