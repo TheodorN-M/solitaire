@@ -19,23 +19,27 @@ public class SolitaireTable extends Grid<Card> {
         super(20, 7);
         this.completed = new HashMap<>();
     }
-
-    public void putAway(Card card){
+    /**
+     * Tries to stow a given card away
+     * @param card the Card in question
+     * @return true if the card is stowed, false otherwise
+     */
+    public boolean stowAway(Card card){
         CardSuit thisSuit = card.getSuit();
         LinkedList<Card> pile = completed.getOrDefault(thisSuit, new LinkedList<Card>());
         // If the pile is empty and the card to stow is an ace
         if (pile.isEmpty() && card.getValue() == 1){ 
             pile.add(card);
             completed.put(thisSuit, pile);
-            return;
+            return true;
         } 
         // If top card is one less than the card in question's value
         if (!pile.isEmpty() && pile.getLast().getValue() +1 == card.getValue()){
             pile.add(card);
             completed.put(thisSuit, pile);
-            return;
+            return true;
         }
-        
+        return false;
     }
 
     public boolean emptyCol(int col) {
