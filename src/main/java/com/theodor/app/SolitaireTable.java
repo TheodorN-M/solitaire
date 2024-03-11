@@ -12,7 +12,6 @@ import com.theodor.app.grid.Grid;
 
 public class SolitaireTable extends Grid<Card> {
 
-    private CardDeck toDrawFrom;
     private HashMap<CardSuit, LinkedList<Card>> completed;
 
     public SolitaireTable() {
@@ -63,6 +62,11 @@ public class SolitaireTable extends Grid<Card> {
     }
 
     public void print() {
+        for (LinkedList<Card> pile : completed.values()) {
+            if (pile.isEmpty())
+                continue;
+            System.out.println(pile.getLast().toString());
+        }
         int maxRows = 7;
 
         // Iterate over each row

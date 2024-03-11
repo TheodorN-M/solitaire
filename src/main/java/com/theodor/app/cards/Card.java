@@ -78,7 +78,7 @@ public class Card implements ICard {
     }
 
     @Override
-    public void turnCard() {
+    public void flip() {
         faceUp = !faceUp;
     }
 

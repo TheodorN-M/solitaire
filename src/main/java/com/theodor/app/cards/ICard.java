@@ -36,7 +36,7 @@ package com.theodor.app.cards;
         /**
          * Changes the face-up status of the card.
          */
-        void turnCard();
+        void flip();
     
         /**
          * Compares this card with another card to determine if they are equal.
