@@ -9,7 +9,7 @@ import com.theodor.app.grid.Grid;
 public class SolitaireTable extends Grid<Card>{
 
     public SolitaireTable() {
-        super(13, 7);
+        super(20, 7);
 
     }
     
@@ -33,17 +33,6 @@ public class SolitaireTable extends Grid<Card>{
         }
     }
 
-    // public void print(){
-    //     for (int col = 0; col < cols(); col++) {
-    //         for (Card card : getCardsInCol(col)) {
-    //             if (card.faceUp())
-    //                 System.out.print(card.toString());
-    //             else
-    //                 System.out.print(" ****************** ");
-    //         }
-    //         System.out.println();
-    //     }
-    // }
     public void print() {
         int maxRows = 7;
     
@@ -57,10 +46,11 @@ public class SolitaireTable extends Grid<Card>{
                     if (card.faceUp())
                         System.out.print(card.toString() + "\t"); // Use tab for spacing
                     else
-                        System.out.print("************\t");
-                } else {
+                        System.out.print("----------\t");
+                } 
+                else 
                     System.out.print("\t\t"); // Print extra spaces if this column is shorter
-                }
+                
             }
             System.out.println(); // Move to the next line after printing all columns in this row
         }

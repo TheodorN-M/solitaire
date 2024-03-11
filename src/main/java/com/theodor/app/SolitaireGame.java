@@ -37,4 +37,14 @@ public class SolitaireGame {
             }
         }
     }
+
+    public void print(){
+        table.print();
+    }
+
+    public void play() {
+        initDeal();
+        print();
+        
+    }
 }
