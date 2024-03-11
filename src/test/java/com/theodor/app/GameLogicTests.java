@@ -40,4 +40,12 @@ public class GameLogicTests {
         table.set(new CellPosition(0, 1), null);
         assertTrue("Column was not empty", table.emptyCol(0));
     }
+
+    @Test
+    public void stowAwayTest(){
+        SolitaireTable table = new SolitaireTable();
+        assertTrue(table.stowAway(new Card(CardSuit.HEARTS, 1)));
+        assertFalse(table.stowAway(new Card(CardSuit.HEARTS, 13)));
+        assertTrue(table.stowAway(new Card(CardSuit.HEARTS, 2)));
+    }
 }
