@@ -18,7 +18,7 @@ public class SolitaireGame {
     }
 
     public boolean isLegalPlacement(Card baseCard, Card cardToPlace) {
-        return baseCard.getValue() == cardToPlace.getValue() + 1
+        return baseCard.getValue() == cardToPlace.getValue() - 1
                 &&
                 baseCard.getColor() != cardToPlace.getColor();
 
