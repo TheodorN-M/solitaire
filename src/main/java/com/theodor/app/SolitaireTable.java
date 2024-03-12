@@ -9,6 +9,7 @@ import com.theodor.app.cards.CardDeck;
 import com.theodor.app.cards.CardSuit;
 import com.theodor.app.grid.CellPosition;
 import com.theodor.app.grid.Grid;
+import com.theodor.app.grid.GridCell;
 
 public class SolitaireTable extends Grid<Card> {
 
@@ -18,22 +19,24 @@ public class SolitaireTable extends Grid<Card> {
         super(20, 7);
         this.completed = new HashMap<>();
     }
+
     /**
      * Tries to stow a given card away
+     * 
      * @param card the Card in question
      * @return true if the card is stowed, false otherwise
      */
-    public boolean stowAway(Card card){
+    public boolean stowAway(Card card) {
         CardSuit thisSuit = card.getSuit();
         LinkedList<Card> pile = completed.getOrDefault(thisSuit, new LinkedList<Card>());
         // If the pile is empty and the card to stow is an ace
-        if (pile.isEmpty() && card.getValue() == 1){ 
+        if (pile.isEmpty() && card.getValue() == 1) {
             pile.add(card);
             completed.put(thisSuit, pile);
             return true;
-        } 
+        }
         // If top card is one less than the card in question's value
-        if (!pile.isEmpty() && pile.getLast().getValue() +1 == card.getValue()){
+        if (!pile.isEmpty() && pile.getLast().getValue() + 1 == card.getValue()) {
             pile.add(card);
             completed.put(thisSuit, pile);
             return true;
@@ -62,11 +65,13 @@ public class SolitaireTable extends Grid<Card> {
     }
 
     public void print() {
+        System.out.println("----------------");
         for (LinkedList<Card> pile : completed.values()) {
             if (pile.isEmpty())
                 continue;
             System.out.println(pile.getLast().toString());
         }
+        System.out.println("----------------\n");
         int maxRows = 7;
 
         // Iterate over each row
@@ -86,6 +91,31 @@ public class SolitaireTable extends Grid<Card> {
             }
             System.out.println(); // Move to the next line after printing all columns in this row
         }
+    }
+
+    /**
+     * Moves a card to the cell below the other card. Does not check game rules for black/red cards!
+     * @see SolitaireGame.isLegalPlacement() method should be asserted before a call to move()!
+     * 
+     * @param toMove     Gridcell object with CellPosition and Card to be moved
+     * @param underneath Gridcell object with CellPosition of Card underneath
+     *                   position
+     * @return wether the card was successfully moved
+     */
+    public boolean move(GridCell<Card> toMove, GridCell<Card> underneath) {
+        CellPosition underneathPos = underneath.getPos();
+        CellPosition newPos = new CellPosition(underneathPos.getRow() + 1, underneathPos.getCol());
+        if (get(newPos) != null)
+            return false;
+
+        set(newPos, toMove.getValue());
+        set(toMove.getPos(), null);
+        return false;
+    }
+
+    public void moveKing(GridCell<Card> gridCell, CellPosition cellPosition) {
+        set(gridCell.getPos(), null);
+        set(cellPosition, gridCell.getValue());
     }
 
 }
