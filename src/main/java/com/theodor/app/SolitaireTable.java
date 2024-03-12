@@ -72,7 +72,7 @@ public class SolitaireTable extends Grid<Card> {
             System.out.println(pile.getLast().toString());
         }
         System.out.println("----------------\n");
-        int maxRows = 7;
+        int maxRows = rows();
 
         // Iterate over each row
         for (int row = 0; row < maxRows; row++) {
@@ -94,8 +94,11 @@ public class SolitaireTable extends Grid<Card> {
     }
 
     /**
-     * Moves a card to the cell below the other card. Does not check game rules for black/red cards!
-     * @see SolitaireGame.isLegalPlacement() method should be asserted before a call to move()!
+     * Moves a card to the cell below the other card. Does not check game rules for
+     * black/red cards!
+     * 
+     * @see SolitaireGame.isLegalPlacement() method should be asserted before a call
+     *      to move()!
      * 
      * @param toMove     Gridcell object with CellPosition and Card to be moved
      * @param underneath Gridcell object with CellPosition of Card underneath
@@ -110,7 +113,7 @@ public class SolitaireTable extends Grid<Card> {
 
         set(newPos, toMove.getValue());
         set(toMove.getPos(), null);
-        return false;
+        return true;
     }
 
     public void moveKing(GridCell<Card> gridCell, CellPosition cellPosition) {

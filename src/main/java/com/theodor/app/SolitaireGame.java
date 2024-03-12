@@ -18,12 +18,16 @@ public class SolitaireGame {
     }
 
     public boolean isLegalPlacement(Card baseCard, Card cardToPlace) {
-        return baseCard.getValue() == cardToPlace.getValue() - 1
+        if (baseCard.getValue() == cardToPlace.getValue() - 1
                 &&
-                baseCard.getColor() != cardToPlace.getColor();
+                baseCard.getColor() != cardToPlace.getColor())
+            return true;
+
+        return cardToPlace.getValue() == 13 && baseCard == null;
 
     }
-    public boolean isFinished(){
+
+    public boolean isFinished() {
         return isFinished;
     }
 
