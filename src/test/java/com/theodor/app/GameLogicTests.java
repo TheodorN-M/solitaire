@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.theodor.app.board.SolitaireTable;
 import com.theodor.app.cards.Card;
 import com.theodor.app.cards.CardSuit;
 import com.theodor.app.grid.CellPosition;

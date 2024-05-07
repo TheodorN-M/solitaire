@@ -1,4 +1,4 @@
-package com.theodor.app;
+package com.theodor.app.board;
 
 import java.util.ArrayList;
 import java.util.HashMap;

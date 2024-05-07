@@ -6,6 +6,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class GameHistory implements Collection<GameBoard> {
+    private int size;
+
+    @Override
+    public int size() {
+        return size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
     @Override
     public boolean contains(Object o) {
@@ -38,6 +49,12 @@ public class GameHistory implements Collection<GameBoard> {
     }
 
     @Override
+    public boolean remove(Object o) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    }
+
+    @Override
     public boolean containsAll(Collection<?> c) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
@@ -61,6 +78,10 @@ public class GameHistory implements Collection<GameBoard> {
         throw new UnsupportedOperationException("Unimplemented method 'retainAll'");
     }
 
-   
+    @Override
+    public void clear() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+    }
 
 }

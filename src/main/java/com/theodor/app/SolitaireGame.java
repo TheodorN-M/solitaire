@@ -1,5 +1,6 @@
 package com.theodor.app;
 
+import com.theodor.app.board.SolitaireTable;
 import com.theodor.app.cards.Card;
 import com.theodor.app.cards.CardDeck;
 import com.theodor.app.grid.CellPosition;

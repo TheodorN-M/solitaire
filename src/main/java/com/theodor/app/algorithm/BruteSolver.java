@@ -1,7 +1,7 @@
 package com.theodor.app.algorithm;
 
 import com.theodor.app.SolitaireGame;
-import com.theodor.app.SolitaireTable;
+import com.theodor.app.board.SolitaireTable;
 import com.theodor.app.cards.Card;
 import com.theodor.app.grid.CellPosition;
 import com.theodor.app.grid.GridCell;

@@ -9,5 +9,6 @@ public class GameBoard {
     public GameBoard(GameBoard current){
         this.successor = current;
     }
+    
 
 }
